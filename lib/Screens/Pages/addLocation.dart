@@ -3,6 +3,7 @@ import 'package:flutter_auth/Screens/Login/components/background.dart';
 import 'package:flutter_auth/Screens/Pages/location.dart';
 import 'package:flutter_auth/components/NavDrawer.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
+import 'package:flutter_auth/components/rounded_input_field.dart';
 
 import '../../constants.dart';
 
@@ -17,13 +18,17 @@ class AddLocation extends StatelessWidget{
     return Scaffold(
       drawer: NavDrawer(),
       appBar: AppBar(
-        title: Text('LOCATIONS'),
+        title: Text('Add Location'),
         backgroundColor: kPrimaryColor,
       ),
-        child: SingleChildScrollView(
+        body:Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            RoundedInputField(
+              hintText: "Location Name",
+              onChanged: (value) {},
+            ),
             RoundedButton(
               text: "Create",
               press: () {
@@ -35,15 +40,11 @@ class AddLocation extends StatelessWidget{
                     },
                   ),
                 );
-
               },
             )
           ]
         ),
-
-
         ),
-
     );
   }
 }
