@@ -23,7 +23,7 @@ class Location extends StatelessWidget {
             alignment: Alignment.bottomRight,
               child:FloatingActionButton(
                 backgroundColor: kPrimaryColor,
-                foregroundColor: Colors.black,
+                foregroundColor: Colors.white,
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
