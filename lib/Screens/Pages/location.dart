@@ -27,7 +27,7 @@ class Location extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return addLocation();
+                      return AddLocation();
                     },
                   ),
                   ); // Respond to button press
