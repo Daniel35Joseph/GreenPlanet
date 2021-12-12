@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/Screens/Pages/addLocation.dart';
 import 'package:flutter_auth/components/NavDrawer.dart';
 import 'package:flutter_auth/constants.dart';
 
@@ -18,19 +19,21 @@ class Location extends StatelessWidget {
           backgroundColor: kPrimaryColor,
         ),
           body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              FloatingActionButton(
+          child: Align(
+            alignment: Alignment.bottomRight,
+              child:FloatingActionButton(
                 backgroundColor: kPrimaryColor,
                 foregroundColor: Colors.black,
                 onPressed: () {
-                  // Respond to button press
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return addLocation();
+                    },
+                  ),
+                  ); // Respond to button press
                 },
                 child: Icon(Icons.add),
               ),
-              SizedBox(height: 8.0),
-            ],
           ),
         ),
       );
