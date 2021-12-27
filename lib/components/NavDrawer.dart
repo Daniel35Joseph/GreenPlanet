@@ -28,7 +28,7 @@ class NavDrawer extends StatelessWidget {
           DrawerHeader(
             child: Center(
               child: Text(
-                'Green Planet',
+                'Mon Jardin',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 25),
               ),
@@ -39,10 +39,10 @@ class NavDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
-              Icons.location_city,
+              Icons.eco,
               color: kPrimaryColor,
             ),
-            title: Text('Locations'),
+            title: Text('My Plants'),
             onTap: () {
               Navigator.push(
                 context,
@@ -69,14 +69,7 @@ class NavDrawer extends StatelessWidget {
             ),
             title: Text('Switch Accounts'),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return null;
-                  },
-                ),
-              ); // Respond to button press
+              // Respond to button press
             },
           ),
           ListTile(
