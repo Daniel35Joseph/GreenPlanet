@@ -11,32 +11,34 @@ class Location extends StatelessWidget {
   }) : super(key: key);
 
   @override
-    Widget build(BuildContext context) {
-      return Scaffold(
-        drawer: NavDrawer(),
-        appBar: AppBar(
-          title: Text('LOCATIONS'),
-          backgroundColor: kPrimaryColor,
-        ),
-          body: Center(
-          child: Align(
-            alignment: Alignment.bottomRight,
-              child:FloatingActionButton(
-                backgroundColor: kPrimaryColor,
-                foregroundColor: Colors.white,
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) {
-                      return AddLocation();
-                    },
-                  ),
-                  ); // Respond to button press
-                },
-                child: Icon(Icons.add),
-              ),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      drawer: NavDrawer(),
+      appBar: AppBar(
+        title: Text('LOCATIONS'),
+        backgroundColor: kPrimaryColor,
+      ),
+      body: Center(
+        child: Align(
+          alignment: Alignment(0.95, 0.95),
+          child: FloatingActionButton(
+            backgroundColor: kPrimaryColor,
+            foregroundColor: Colors.white,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return AddLocation();
+                  },
+                ),
+              ); // Respond to button press
+            },
+            child: Icon(Icons.add),
           ),
         ),
-      );
+      ),
+    );
   }
 }
 
