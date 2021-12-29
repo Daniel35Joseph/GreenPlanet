@@ -16,7 +16,10 @@ class ListLocationWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => buildLocation();
+  Widget build(BuildContext context) => SizeTransition(
+        sizeFactor: animation,
+        child: buildLocation(),
+      );
 
   Widget buildLocation() => Container(
         margin: EdgeInsets.all(8),
