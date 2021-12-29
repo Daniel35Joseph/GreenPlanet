@@ -9,8 +9,8 @@ import 'package:flutter_auth/widget/list_location_widget.dart';
 import 'background.dart';
 
 class Location extends StatelessWidget {
-  final listKey = GlobalKey<AnimatedListState>();
-  final List<ListLocation> locations = List.from(listLocations);
+  static final listKey = GlobalKey<AnimatedListState>();
+  static final List<ListLocation> locations = List.from(listLocations);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -26,26 +26,54 @@ class Location extends StatelessWidget {
         itemBuilder: (context, index, animation) => ListLocationWidget(
           location: locations[index],
           animation: animation,
-          onClicked: () => removeItem(index),
+          onClicked: () => removeLocation(index),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPrimaryColor,
         foregroundColor: Colors.white,
         child: Icon(Icons.add),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return AddLocation();
-              },
-            ),
-          );
-        },
+        onPressed: insertTheLocation(0),
+        // onPressed: () {
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) {
+        //       return AddLocation();
+        //     },
+        //   ),
+        // );
+        // },
       ));
 
-  void removeItem(int index) {
+  //Getters
+  static List<ListLocation> getLocations() {
+    return locations;
+  }
+
+  static GlobalKey<AnimatedListState> getListKey() {
+    return listKey;
+  }
+
+  VoidCallback insertTheLocation(int index) {
+    List<ListLocation> locations = Location.getLocations();
+
+    insertLocation() {
+      final newIndex = 0;
+      final newLocation = ListLocation(
+        title: 'New',
+        urlImage:
+            'https://upload.wikimedia.org/wikipedia/commons/8/84/SH.A_Logo.jpg',
+      );
+
+      locations.insert(newIndex, newLocation);
+      listKey.currentState.insertItem(newIndex);
+    }
+
+    ;
+  }
+
+  void removeLocation(int index) {
     final removedLocation = locations[index];
 
     locations.removeAt(index);
@@ -58,41 +86,4 @@ class Location extends StatelessWidget {
       ),
     );
   }
-
-  // const Location({
-  //   Key key,
-  // }) : super(key: key);
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     drawer: NavDrawer(),
-  //     appBar: AppBar(
-  //       title: Text('LOCATIONS'),
-  //       backgroundColor: kPrimaryColor,
-  //     ),
-  //     body: Center(
-  //       child: Align(
-  //         alignment: Alignment(0.95, 0.95),
-  //         child: FloatingActionButton(
-  //           backgroundColor: kPrimaryColor,
-  //           foregroundColor: Colors.white,
-  //           onPressed: () {
-  //             Navigator.push(
-  //               context,
-  //               MaterialPageRoute(
-  //                 builder: (context) {
-  //                   return AddLocation();
-  //                 },
-  //               ),
-  //             ); // Respond to button press
-  //           },
-  //           child: Icon(Icons.add),
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
 }
-
-// )
