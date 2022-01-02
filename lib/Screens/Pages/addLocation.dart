@@ -49,7 +49,9 @@ class _MainPageState extends State<AddLocation> {
       );
 
   Widget buildTitle() => TextFormField(
+        scrollPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         cursorColor: kPrimaryColor,
+        cursorWidth: 0.8,
         decoration: InputDecoration(
           icon: new Icon(
             Icons.person,
@@ -57,13 +59,14 @@ class _MainPageState extends State<AddLocation> {
           ),
           hintText: "Location Name",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15.0),
+            borderRadius: BorderRadius.circular(29),
             borderSide: new BorderSide(
               color: kPrimaryColor,
               width: 5.0,
             ),
           ),
         ),
+
         // errorBorder:
         //     OutlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
         // focusedErrorBorder:
@@ -83,6 +86,8 @@ class _MainPageState extends State<AddLocation> {
 
   Widget buildImage() => TextFormField(
         cursorColor: kPrimaryColor,
+        cursorWidth: 0.8,
+        scrollPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         decoration: InputDecoration(
           icon: new Icon(
             Icons.image,
@@ -90,7 +95,7 @@ class _MainPageState extends State<AddLocation> {
           ),
           hintText: "Image Url",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15.0),
+            borderRadius: BorderRadius.circular(29),
             borderSide: new BorderSide(
               color: kPrimaryColor,
               width: 5.0,

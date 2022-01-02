@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/constants.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String text;
@@ -14,11 +15,11 @@ class ButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) => RaisedButton(
         child: Text(
           text,
-          style: TextStyle(fontSize: 24),
+          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
         ),
         shape: StadiumBorder(),
-        color: Theme.of(context).primaryColor,
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        color: kPrimaryColor,
+        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
         textColor: Colors.white,
         onPressed: onClicked,
       );
