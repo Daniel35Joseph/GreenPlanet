@@ -33,17 +33,18 @@ class Location extends StatelessWidget {
         backgroundColor: kPrimaryColor,
         foregroundColor: Colors.white,
         child: Icon(Icons.add),
-        onPressed: insertTheLocation(0),
-        // onPressed: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) {
-        //       return AddLocation();
-        //     },
-        //   ),
-        // );
-        // },
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return AddLocation(
+                  title: "Insert Title Here",
+                );
+              },
+            ),
+          );
+        },
       ));
 
   //Getters
@@ -53,24 +54,6 @@ class Location extends StatelessWidget {
 
   static GlobalKey<AnimatedListState> getListKey() {
     return listKey;
-  }
-
-  VoidCallback insertTheLocation(int index) {
-    List<ListLocation> locations = Location.getLocations();
-
-    insertLocation() {
-      final newIndex = 0;
-      final newLocation = ListLocation(
-        title: 'New',
-        urlImage:
-            'https://upload.wikimedia.org/wikipedia/commons/8/84/SH.A_Logo.jpg',
-      );
-
-      locations.insert(newIndex, newLocation);
-      listKey.currentState.insertItem(newIndex);
-    }
-
-    ;
   }
 
   void removeLocation(int index) {
