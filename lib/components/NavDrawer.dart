@@ -60,6 +60,7 @@ class NavDrawer extends StatelessWidget {
               color: kPrimaryColor,
             ),
             title: Text('Notifications'),
+            // ignore: sdk_version_set_literal
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(

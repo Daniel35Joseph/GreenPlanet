@@ -146,8 +146,10 @@ class _MainPageState extends State<AddLocation> {
       );
 }
 
+
 void addNewLocation(String title, String urlImage) {
   DatabaseReference _testRef =
+      // ignore: deprecated_member_use
       FirebaseDatabase.instance.reference().child("Locations");
   DatabaseReference _ref = _testRef.child("Location_${Random().nextInt(100)}");
   _ref.child("Title").set(title);
