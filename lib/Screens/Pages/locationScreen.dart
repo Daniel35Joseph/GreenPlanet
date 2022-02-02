@@ -35,8 +35,19 @@ class _LocationsState extends State<LocationScreen>{
         title: Text(
           location['Title'],
           style: TextStyle(fontSize: 20, color: Colors.black),
-        )
+        ),
+        onTap: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return LocationScreen();
+              },
+            ),
+          );
+        },
       ),
+
     );
   }
 
