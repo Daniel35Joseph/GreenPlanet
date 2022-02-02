@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Pages/locationScreen.dart';
-import 'package:flutter_auth/Screens/Pages/locationScreen.dart';
 
 import '../constants.dart';
 
