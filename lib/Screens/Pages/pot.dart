@@ -1,19 +1,77 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/components/NavDrawer.dart';
 
 import '../../constants.dart';
 
-class Pot extends StatelessWidget{
+class Pot extends StatefulWidget {
   final String title;
   final String image;
+  final String plantName;
 
-  const Pot({Key key, this.title, this.image}) : super(key: key);
+  const Pot({Key key, this.title, this.image, this.plantName}) : super(key: key);
+
+  @override
+  _PotState createState() => _PotState(title,image,plantName);
+}
+
+class _PotState extends State<Pot>{
+  final String title;
+  final String image;
+  final String plantName;
+  final _database = FirebaseDatabase.instance.reference();
+
+  String _description;
+  String _temperature;
+  String _humidity;
+  String _moisture;
+
+  Query _ref;
+  DatabaseReference plantRef = FirebaseDatabase.instance.reference().child('plantType');
+
+  _PotState(this.title, this.image, this.plantName);
+
+  void initState() {
+    super.initState();
+    _activateListeners();
+    _ref = FirebaseDatabase.instance.reference().child("plantType");
+    plantRef = FirebaseDatabase.instance.reference().child("plantType");
+  }
+
+  void _activateListeners(){
+    final _descriptionRef = _database.child("plantType/$plantName/description").onValue.listen((event){
+      final String descriptionSnapshot = event.snapshot.value;
+      setState(() {
+        _description = '$descriptionSnapshot';
+      });
+    });
+    final _humiditynRef = _database.child("plantType/$plantName/humidity").onValue.listen((event){
+      final String humiditySnapshot = event.snapshot.value;
+      setState(() {
+        _humidity = '$humiditySnapshot';
+      });
+    });
+    final _temperatureRef = _database.child("plantType/$plantName/temperature").onValue.listen((event){
+      final String temperatureSnapshot = event.snapshot.value;
+      setState(() {
+        _temperature = '$temperatureSnapshot';
+      });
+      final _moistureRef = _database.child("plantType/$plantName/soil-moisture").onValue.listen((event){
+        final String moistureSnapshot = event.snapshot.value;
+        setState(() {
+          _moisture = '$moistureSnapshot';
+        });
+      });
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
     drawer: NavDrawer(),
     appBar: AppBar(
+      //title: Text(plantName),
       backgroundColor: kPrimaryColor,
       centerTitle: true,
       elevation: 0,
@@ -70,7 +128,7 @@ class Pot extends StatelessWidget{
                                   ),
                                   SizedBox(height: 7),
                                   Text(
-                                    "20C",
+                                    _temperature,
                                     style: TextStyle(
                                       color: kPrimaryColor,
                                       fontSize: 20,
@@ -92,7 +150,7 @@ class Pot extends StatelessWidget{
                                   ),
                                   SizedBox(height: 7),
                                   Text(
-                                    "30 g/m^3",
+                                    _moisture,
                                     style: TextStyle(
                                       color: kPrimaryColor,
                                       fontSize: 20,
@@ -114,7 +172,7 @@ class Pot extends StatelessWidget{
                                   ),
                                   SizedBox(height: 7),
                                   Text(
-                                    "25%",
+                                    _humidity,
                                     style: TextStyle(
                                       color: kPrimaryColor,
                                       fontSize: 20,
@@ -150,7 +208,7 @@ class Pot extends StatelessWidget{
                 ),
                 SizedBox(height: 10,),
                 Text(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed massa vitae dui pretium vestibulum vehicula eget massa. Mauris lacinia congue erat a semper.",
+                  _description,
                   style: TextStyle(
                     color: Colors.black54,
                     fontStyle: FontStyle.italic,

@@ -50,7 +50,7 @@ class _LocationsState extends State<LocationScreen>{
             context,
             MaterialPageRoute(
               builder: (context) {
-                return Pot(title: location["Title"], image: location['Image'],);
+                return Pot(title: location["Title"], image: location['Image'],plantName: location['plantname']);
               },
             ),
           );
