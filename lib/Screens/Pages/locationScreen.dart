@@ -20,7 +20,7 @@ class _LocationsState extends State<LocationScreen>{
   @override
   void initState() {
     super.initState();
-    _ref = FirebaseDatabase.instance.reference().child("Locations").orderByChild("title");
+    _ref = FirebaseDatabase.instance.reference().child("Locations");
   }
 
   Widget _buildLocationItem({Map location}){

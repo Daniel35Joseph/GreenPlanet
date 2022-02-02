@@ -155,12 +155,9 @@ class _MainPageState extends State<AddLocation> {
 }
 
 void addNewLocation(String title, String urlImage) {
-  DatabaseReference _counter =
-      FirebaseDatabase.instance.reference().child("locations_counter");
-  int counter = 0;
   DatabaseReference _testRef =
       FirebaseDatabase.instance.reference().child("Locations");
-  DatabaseReference _ref = _testRef.child("Location_$counter");
+  DatabaseReference _ref = _testRef.child("Location_${Random().nextInt(100)}");
   listLocations.add(
     ListLocation(
       title: title,
@@ -169,8 +166,6 @@ void addNewLocation(String title, String urlImage) {
   );
   _ref.child("Title").set(title);
   _ref.child("Image").set(urlImage);
-  counter =counter+1;
-  _counter.set(counter);
 }
 
 // class AddLocation extends StatelessWidget {
