@@ -22,6 +22,7 @@ class _MainPageState extends State<AddLocation> {
   final formKey = GlobalKey<FormState>();
   String title = '';
   String urlImage = '';
+  String plantName = '';
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -38,6 +39,8 @@ class _MainPageState extends State<AddLocation> {
               buildTitle(),
               const SizedBox(height: 16),
               buildImage(),
+              const SizedBox(height: 16),
+              buildPlant(),
               const SizedBox(height: 32),
               buildSubmit(),
             ],
@@ -64,11 +67,6 @@ class _MainPageState extends State<AddLocation> {
           ),
         ),
 
-        // errorBorder:
-        //     OutlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
-        // focusedErrorBorder:
-        //     OutlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
-        // errorStyle: TextStyle(color: Colors.purple),
 
         validator: (value) {
           if (value.length < 3) {
@@ -106,9 +104,37 @@ class _MainPageState extends State<AddLocation> {
             return null;
           }
         },
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: TextInputType.url,
         onSaved: (value) => setState(() => urlImage = value),
       );
+
+  Widget buildPlant() => TextFormField(
+    cursorColor: kPrimaryColor,
+    cursorWidth: 0.8,
+    scrollPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+    decoration: InputDecoration(
+      icon: new Icon(
+        Icons.eco,
+        color: kPrimaryColor,
+      ),
+      hintText: "Plant Type",
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(29),
+        borderSide: new BorderSide(
+          color: kPrimaryColor,
+          width: 5.0,
+        ),
+      ),
+    ),
+    validator: (value) {
+      if (value.isEmpty) {
+        return 'Enter a Plant type';
+      } else {
+        return null;
+      }
+    },
+    onSaved: (value) => setState(() => plantName = value),
+  );
 
   Widget buildSubmit() => Builder(
         builder: (context) => ButtonWidget(
@@ -120,7 +146,7 @@ class _MainPageState extends State<AddLocation> {
             if (isValid) {
               formKey.currentState.save();
 
-              addNewLocation(title, urlImage);
+              addNewLocation(title, urlImage, plantName);
 
               final message = 'Title: $title\nImage Url: $urlImage';
               final snackBar = SnackBar(
@@ -147,13 +173,14 @@ class _MainPageState extends State<AddLocation> {
 }
 
 
-void addNewLocation(String title, String urlImage) {
+void addNewLocation(String title, String urlImage, String plantName) {
   DatabaseReference _testRef =
       // ignore: deprecated_member_use
       FirebaseDatabase.instance.reference().child("Locations");
   DatabaseReference _ref = _testRef.child("Location_${Random().nextInt(100)}");
   _ref.child("Title").set(title);
   _ref.child("Image").set(urlImage);
+  _ref.child("plantname").set(plantName);
 }
 
 // class AddLocation extends StatelessWidget {
