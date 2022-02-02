@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Pages/location.dart';
+import 'package:flutter_auth/Screens/Pages/locationScreen.dart';
+import 'package:flutter_auth/Screens/Pages/locationScreen.dart';
 
 import '../constants.dart';
 
@@ -48,7 +49,7 @@ class NavDrawer extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return Location();
+                    return LocationScreen();
                   },
                 ),
               ); // Respond to button press
