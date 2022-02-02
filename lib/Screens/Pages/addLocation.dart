@@ -24,6 +24,9 @@ class _MainPageState extends State<AddLocation> {
   String urlImage = '';
   String plantName = '';
 
+  final plantTypes = ['aloeplant', 'bamboo', 'jasmine', 'monstera', 'sunflower'];
+  String value;
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
@@ -40,7 +43,7 @@ class _MainPageState extends State<AddLocation> {
               const SizedBox(height: 16),
               buildImage(),
               const SizedBox(height: 16),
-              buildPlant(),
+              buildPlantDropDown(),
               const SizedBox(height: 32),
               buildSubmit(),
             ],
@@ -108,32 +111,38 @@ class _MainPageState extends State<AddLocation> {
         onSaved: (value) => setState(() => urlImage = value),
       );
 
-  Widget buildPlant() => TextFormField(
-    cursorColor: kPrimaryColor,
-    cursorWidth: 0.8,
-    scrollPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-    decoration: InputDecoration(
-      icon: new Icon(
-        Icons.eco,
+  Widget buildPlantDropDown() => Container(
+    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    margin: EdgeInsets.all(16),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(29),
+      border: Border.all(color: kPrimaryColor, width: 2),
+    ),
+    child: DropdownButtonHideUnderline(
+      child: DropdownButton<String>(
+      dropdownColor: kPrimaryLightColor,
+      icon: Icon(
+        Icons.arrow_drop_down,
+        size: 26,
         color: kPrimaryColor,
       ),
-      hintText: "Plant Type",
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(29),
-        borderSide: new BorderSide(
-          color: kPrimaryColor,
-          width: 5.0,
-        ),
+      value: value,
+      isExpanded: true,
+      items: plantTypes.map(buildMenuItem ).toList(),
+      onChanged: (value) => setState(() => plantName = value),
+      borderRadius: BorderRadius.circular(29),
+      )
+    )
+  );
+
+  DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(
+    value: item,
+    child: Text(
+      item,
+      style: TextStyle(
+        fontSize: 20,
       ),
     ),
-    validator: (value) {
-      if (value.isEmpty) {
-        return 'Enter a Plant type';
-      } else {
-        return null;
-      }
-    },
-    onSaved: (value) => setState(() => plantName = value),
   );
 
   Widget buildSubmit() => Builder(
