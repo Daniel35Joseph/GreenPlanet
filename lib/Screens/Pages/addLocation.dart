@@ -1,3 +1,7 @@
+import 'dart:developer';
+import 'dart:math';
+
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Model/list_location.dart';
 import 'package:flutter_auth/Screens/Login/components/background.dart';
@@ -150,15 +154,20 @@ class _MainPageState extends State<AddLocation> {
 }
 
 void addNewLocation(String title, String urlImage) {
+  DatabaseReference _counter =
+      FirebaseDatabase.instance.reference().child("locations_counter");
+  DatabaseReference _testRef =
+      FirebaseDatabase.instance.reference().child("Locations");
+  DatabaseReference _ref = _testRef.child("Location_${Random().nextInt(100)}");
   listLocations.add(
     ListLocation(
       title: title,
       urlImage: urlImage,
     ),
   );
+  _ref.child("Title").set(title);
+  _ref.child("Image").set(urlImage);
 }
-
-
 
 // class AddLocation extends StatelessWidget {
 //   const AddLocation({
@@ -204,23 +213,23 @@ void addNewLocation(String title, String urlImage) {
 //     );
 //   }
 
-  // VoidCallback insertLocation(int index) {
-  //   List<ListLocation> locations = Location.getLocations();
+// VoidCallback insertLocation(int index) {
+//   List<ListLocation> locations = Location.getLocations();
 
-  //   insertLocation() {
-  //     final newIndex = 0;
-  //     final listKey = Location.getListKey();
-  //     final newLocation = ListLocation(
-  //       title: 'New',
-  //       urlImage:
-  //           'https://upload.wikimedia.org/wikipedia/commons/8/84/SH.A_Logo.jpg',
-  //     );
+//   insertLocation() {
+//     final newIndex = 0;
+//     final listKey = Location.getListKey();
+//     final newLocation = ListLocation(
+//       title: 'New',
+//       urlImage:
+//           'https://upload.wikimedia.org/wikipedia/commons/8/84/SH.A_Logo.jpg',
+//     );
 
-  //     locations.insert(newIndex, newLocation);
+//     locations.insert(newIndex, newLocation);
 
-  //     listKey.currentState.insertItem(newIndex);
-  //   }
+//     listKey.currentState.insertItem(newIndex);
+//   }
 
-  //   ;
-  // }
+//   ;
+// }
 // }
