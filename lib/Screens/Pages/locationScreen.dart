@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Pages/addLocation.dart';
+import 'package:flutter_auth/Screens/Pages/pot.dart';
 import 'package:flutter_auth/components/NavDrawer.dart';
 import 'package:flutter_auth/constants.dart';
 
@@ -35,8 +36,19 @@ class _LocationsState extends State<LocationScreen>{
         title: Text(
           location['Title'],
           style: TextStyle(fontSize: 20, color: Colors.black),
-        )
+        ),
+        onTap: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return Pot(title: location["Title"], image: location['Image'],);
+              },
+            ),
+          );
+        },
       ),
+
     );
   }
 
