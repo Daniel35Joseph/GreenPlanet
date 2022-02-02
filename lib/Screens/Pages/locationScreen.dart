@@ -13,10 +13,12 @@ class LocationScreen extends StatefulWidget {
 
 class _LocationsState extends State<LocationScreen>{
   Query _ref;
+  DatabaseReference reference = FirebaseDatabase.instance.reference().child('Locations');
 
   @override
   void initState() {
     super.initState();
+    // ignore: deprecated_member_use
     _ref = FirebaseDatabase.instance.reference().child("Locations");
   }
 
@@ -33,6 +35,12 @@ class _LocationsState extends State<LocationScreen>{
           radius: 32,
           backgroundImage: NetworkImage(location['Image']),
         ),
+        trailing: IconButton(
+          icon: Icon(Icons.delete, color: Colors.red, size: 32),
+          onPressed: () {
+            _showDeleteDialog(location: location);
+          }
+        ),
         title: Text(
           location['Title'],
           style: TextStyle(fontSize: 20, color: Colors.black),
@@ -48,16 +56,39 @@ class _LocationsState extends State<LocationScreen>{
           );
         },
       ),
-
     );
   }
 
+  _showDeleteDialog({Map location}) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Delete ${location['Title']}'),
+            content: Text('Are you sure you want to delete?'),
+            actions: [
+              FlatButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text('Cancel')),
+              FlatButton(
+                  onPressed: () {
+                    reference.child(location['key']).remove().whenComplete(() => Navigator.pop(context));
+                  },
+                  child: Text('Delete'))
+            ],
+          );
+        });
+  }
+
+  
   @override
   Widget build(BuildContext context){
     return Scaffold(
       drawer: NavDrawer(),
       appBar: AppBar(
-        title: Text('LOCATIONS'),
+        title: Text('POTS'),
         backgroundColor: kPrimaryColor,
         centerTitle: true,
       ),
@@ -67,12 +98,14 @@ class _LocationsState extends State<LocationScreen>{
           query: _ref,
           itemBuilder: (BuildContext context, DataSnapshot snapshot, Animation<double> animation, int index) {
             Map location = snapshot.value;
+            location['key'] = snapshot.key;
             return _buildLocationItem(
               location: location
             );
           }
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPrimaryColor,
         foregroundColor: Colors.white,
@@ -92,4 +125,6 @@ class _LocationsState extends State<LocationScreen>{
       )
     );
   }
+
+
 }

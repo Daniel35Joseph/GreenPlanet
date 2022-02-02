@@ -12,6 +12,7 @@ class ButtonWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  // ignore: deprecated_member_use
   Widget build(BuildContext context) => RaisedButton(
         child: Text(
           text,

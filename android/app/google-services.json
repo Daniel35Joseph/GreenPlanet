@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "192563250359",
+    "firebase_url": "https://green-planet-438bd-default-rtdb.firebaseio.com",
     "project_id": "green-planet-438bd",
     "storage_bucket": "green-planet-438bd.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:192563250359:android:3c3bd191796b8963e93932",
+        "mobiles  dk_app_id": "1:192563250359:android:3c3bd191796b8963e93932",
         "android_client_info": {
           "package_name": "com.example.flutter_auth"
         }
