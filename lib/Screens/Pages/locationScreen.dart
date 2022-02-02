@@ -1,13 +1,9 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Model/list_location.dart';
 import 'package:flutter_auth/Screens/Pages/addLocation.dart';
 import 'package:flutter_auth/components/NavDrawer.dart';
 import 'package:flutter_auth/constants.dart';
-import 'package:flutter_auth/data/list_locations.dart';
-
-import 'background.dart';
 
 class LocationScreen extends StatefulWidget {
   @override
@@ -20,7 +16,7 @@ class _LocationsState extends State<LocationScreen>{
   @override
   void initState() {
     super.initState();
-    _ref = FirebaseDatabase.instance.reference().child("Locations").orderByChild("title");
+    _ref = FirebaseDatabase.instance.reference().child("Locations");
   }
 
   Widget _buildLocationItem({Map location}){
