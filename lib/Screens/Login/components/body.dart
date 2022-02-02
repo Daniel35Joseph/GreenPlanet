@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Login/components/background.dart';
-import 'package:flutter_auth/Screens/Pages/location.dart';
+import 'package:flutter_auth/Screens/Pages/locationScreen.dart';
+import 'package:flutter_auth/Screens/Pages/locationScreen.dart';
 import 'package:flutter_auth/Screens/Signup/signup_screen.dart';
 import 'package:flutter_auth/components/already_have_an_account_acheck.dart';
 import 'package:flutter_auth/components/rounded_button.dart';
@@ -41,7 +42,7 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return Location();
+                      return LocationScreen();
                     },
                   ),
                 );
