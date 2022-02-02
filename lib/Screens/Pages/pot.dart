@@ -76,7 +76,8 @@ class _PotState extends State<Pot>{
       centerTitle: true,
       elevation: 0,
     ),
-    body: Column(
+    body: SingleChildScrollView(
+    child: Column(
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
@@ -280,8 +281,13 @@ class _PotState extends State<Pot>{
               ),
             ),
           ),
-        )
+        ),
+        Container(
+          width: 300,
+          height: 20,
+        ),
       ],
+    ),
     ),
   );
 
