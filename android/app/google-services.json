@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "192563250359",
+    "project_id": "green-planet-438bd",
+    "storage_bucket": "green-planet-438bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192563250359:android:3c3bd191796b8963e93932",
+        "android_client_info": {
+          "package_name": "com.example.flutter_auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "192563250359-be8a6dehmtcgbrtb0mp2ocnupj93ddt4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHjP46CgT4OObZvqHY2fQdO2BRZSuy_Zc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "192563250359-be8a6dehmtcgbrtb0mp2ocnupj93ddt4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
