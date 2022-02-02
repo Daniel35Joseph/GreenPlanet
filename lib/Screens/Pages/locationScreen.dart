@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Pages/addLocation.dart';
+import 'package:flutter_auth/Screens/Pages/pot.dart';
 import 'package:flutter_auth/components/NavDrawer.dart';
 import 'package:flutter_auth/constants.dart';
 
@@ -41,7 +42,7 @@ class _LocationsState extends State<LocationScreen>{
             context,
             MaterialPageRoute(
               builder: (context) {
-                return LocationScreen();
+                return Pot();
               },
             ),
           );
