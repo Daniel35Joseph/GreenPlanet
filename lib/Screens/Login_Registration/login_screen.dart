@@ -31,6 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     //email field
     final emailField = TextFormField(
+        cursorColor: kPrimaryColor,
         autofocus: false,
         controller: emailController,
         keyboardType: TextInputType.emailAddress,
@@ -50,6 +51,20 @@ class _LoginScreenState extends State<LoginScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryColor,
+              width: 3,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
+          ),
           prefixIcon: Icon(
             Icons.mail,
             color: kPrimaryColor,
@@ -57,12 +72,17 @@ class _LoginScreenState extends State<LoginScreen> {
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Email",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
           ),
         ));
 
     //password field
     final passwordField = TextFormField(
+        cursorColor: kPrimaryColor,
         autofocus: false,
         controller: passwordController,
         obscureText: true,
@@ -80,6 +100,20 @@ class _LoginScreenState extends State<LoginScreen> {
         },
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
+          ),
           prefixIcon: Icon(
             Icons.vpn_key,
             color: kPrimaryColor,
@@ -87,7 +121,11 @@ class _LoginScreenState extends State<LoginScreen> {
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Password",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
           ),
         ));
 

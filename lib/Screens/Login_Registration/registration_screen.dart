@@ -36,6 +36,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     //first name field
     final firstNameField = TextFormField(
+        cursorColor: kPrimaryColor,
         autofocus: false,
         controller: firstNameEditingController,
         keyboardType: TextInputType.name,
@@ -54,6 +55,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
+          ),
           prefixIcon: Icon(
             Icons.account_circle,
             color: kPrimaryColor,
@@ -61,12 +76,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "First Name",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(29),
           ),
         ));
 
     //second name field
     final secondNameField = TextFormField(
+        cursorColor: kPrimaryColor,
         autofocus: false,
         controller: secondNameEditingController,
         keyboardType: TextInputType.name,
@@ -81,6 +97,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
+          ),
           prefixIcon: Icon(
             Icons.account_circle,
             color: kPrimaryColor,
@@ -88,12 +118,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Second Name",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(29),
           ),
         ));
 
     //email field
     final emailField = TextFormField(
+        cursorColor: kPrimaryColor,
         autofocus: false,
         controller: emailEditingController,
         keyboardType: TextInputType.emailAddress,
@@ -113,6 +144,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
+          ),
           prefixIcon: Icon(
             Icons.mail,
             color: kPrimaryColor,
@@ -120,12 +165,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Email",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(29),
           ),
         ));
 
     //password field
     final passwordField = TextFormField(
+        cursorColor: kPrimaryColor,
         autofocus: false,
         controller: passwordEditingController,
         obscureText: true,
@@ -143,19 +189,35 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
+          ),
           prefixIcon: Icon(
             Icons.vpn_key,
             color: kPrimaryColor,
           ),
+          focusColor: kPrimaryColor,
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Password",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(29),
           ),
         ));
 
     //confirm password field
     final confirmPasswordField = TextFormField(
+        cursorColor: kPrimaryColor,
         autofocus: false,
         controller: confirmPasswordEditingController,
         obscureText: true,
@@ -171,6 +233,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
+          ),
           prefixIcon: Icon(
             Icons.vpn_key,
             color: kPrimaryColor,
@@ -178,7 +254,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Confirm Password",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(29),
           ),
         ));
 
