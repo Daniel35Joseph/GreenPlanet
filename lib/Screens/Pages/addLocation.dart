@@ -112,14 +112,14 @@ class _MainPageState extends State<AddLocation> {
       );
 
   Widget buildPlantDropDown() => Container(
-    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-    margin: EdgeInsets.all(16),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(29),
-      border: Border.all(color: kPrimaryColor, width: 2),
     ),
+    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    margin: EdgeInsets.all(16),
     child: DropdownButtonHideUnderline(
       child: DropdownButton<String>(
+      hint: Text("Choose Plant Type"),
       dropdownColor: kPrimaryLightColor,
       icon: Icon(
         Icons.arrow_drop_down,
@@ -129,7 +129,10 @@ class _MainPageState extends State<AddLocation> {
       value: value,
       isExpanded: true,
       items: plantTypes.map(buildMenuItem ).toList(),
-      onChanged: (value) => setState(() => plantName = value),
+      onChanged: (value) => setState(() {
+        plantName = value;
+        this.value = value;
+      }),
       borderRadius: BorderRadius.circular(29),
       )
     )
