@@ -13,7 +13,7 @@ class LocationScreen extends StatefulWidget {
 
 class _LocationsState extends State<LocationScreen>{
   Query _ref;
-  DatabaseReference reference = FirebaseDatabase.instance.reference().child('Locations');
+  DatabaseReference reference = FirebaseDatabase.instance.ref().child('Locations');
 
   @override
   void initState() {
@@ -67,12 +67,12 @@ class _LocationsState extends State<LocationScreen>{
             title: Text('Delete ${location['Title']}'),
             content: Text('Are you sure you want to delete?'),
             actions: [
-              FlatButton(
+              TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
                   child: Text('Cancel')),
-              FlatButton(
+              TextButton(
                   onPressed: () {
                     reference.child(location['key']).remove().whenComplete(() => Navigator.pop(context));
                   },
