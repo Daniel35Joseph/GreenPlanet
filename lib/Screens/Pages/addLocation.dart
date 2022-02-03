@@ -39,6 +39,7 @@ class _MainPageState extends State<AddLocation> {
           child: ListView(
             padding: EdgeInsets.all(16),
             children: [
+              const SizedBox(height: 16),
               buildTitle(),
               const SizedBox(height: 16),
               buildImage(),
