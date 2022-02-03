@@ -30,7 +30,7 @@ class _MainPageState extends State<AddLocation> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text('Add Location'),
+          title: Text('Add New Plant'),
           backgroundColor: kPrimaryColor,
         ),
         body: Form(
@@ -114,26 +114,30 @@ class _MainPageState extends State<AddLocation> {
   Widget buildPlantDropDown() => Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(29),
+      border: Border.all(
+        color: kPrimaryColor,
+        width: 2,
+      )
     ),
-    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
     margin: EdgeInsets.all(16),
     child: DropdownButtonHideUnderline(
       child: DropdownButton<String>(
-      hint: Text("Choose Plant Type"),
-      dropdownColor: kPrimaryLightColor,
-      icon: Icon(
-        Icons.arrow_drop_down,
-        size: 26,
-        color: kPrimaryColor,
-      ),
-      value: value,
-      isExpanded: true,
-      items: plantTypes.map(buildMenuItem ).toList(),
-      onChanged: (value) => setState(() {
-        plantName = value;
-        this.value = value;
-      }),
-      borderRadius: BorderRadius.circular(29),
+        hint: Text("Choose Plant Type"),
+        dropdownColor: kPrimaryLightColor,
+        icon: Icon(
+          Icons.arrow_drop_down,
+          size: 26,
+          color: kPrimaryColor,
+        ),
+        value: value,
+        isExpanded: true,
+        items: plantTypes.map(buildMenuItem ).toList(),
+        onChanged: (value) => setState(() {
+          plantName = value;
+          this.value = value;
+        }),
+        borderRadius: BorderRadius.circular(29),
       )
     )
   );
@@ -153,7 +157,6 @@ class _MainPageState extends State<AddLocation> {
           text: 'Submit',
           onClicked: () {
             final isValid = formKey.currentState.validate();
-            // FocusScope.of(context).unfocus();
 
             if (isValid) {
               formKey.currentState.save();
@@ -164,7 +167,10 @@ class _MainPageState extends State<AddLocation> {
               final snackBar = SnackBar(
                 content: Text(
                   message,
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 backgroundColor: kPrimaryLightColor,
               );
