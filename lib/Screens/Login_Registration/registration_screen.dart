@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Model/user_model.dart';
 import 'package:flutter_auth/Screens/Pages/locationScreen.dart';
+import 'package:flutter_auth/constants.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'home_screen.dart';
@@ -35,6 +36,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     //first name field
     final firstNameField = TextFormField(
+        cursorColor: kPrimaryColor,
         autofocus: false,
         controller: firstNameEditingController,
         keyboardType: TextInputType.name,
@@ -53,16 +55,34 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.account_circle),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
+          ),
+          prefixIcon: Icon(
+            Icons.account_circle,
+            color: kPrimaryColor,
+          ),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "First Name",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(29),
           ),
         ));
 
     //second name field
     final secondNameField = TextFormField(
+        cursorColor: kPrimaryColor,
         autofocus: false,
         controller: secondNameEditingController,
         keyboardType: TextInputType.name,
@@ -77,16 +97,34 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.account_circle),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
+          ),
+          prefixIcon: Icon(
+            Icons.account_circle,
+            color: kPrimaryColor,
+          ),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Second Name",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(29),
           ),
         ));
 
     //email field
     final emailField = TextFormField(
+        cursorColor: kPrimaryColor,
         autofocus: false,
         controller: emailEditingController,
         keyboardType: TextInputType.emailAddress,
@@ -106,16 +144,34 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.mail),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
+          ),
+          prefixIcon: Icon(
+            Icons.mail,
+            color: kPrimaryColor,
+          ),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Email",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(29),
           ),
         ));
 
     //password field
     final passwordField = TextFormField(
+        cursorColor: kPrimaryColor,
         autofocus: false,
         controller: passwordEditingController,
         obscureText: true,
@@ -133,16 +189,35 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.vpn_key),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
+          ),
+          prefixIcon: Icon(
+            Icons.vpn_key,
+            color: kPrimaryColor,
+          ),
+          focusColor: kPrimaryColor,
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Password",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(29),
           ),
         ));
 
     //confirm password field
     final confirmPasswordField = TextFormField(
+        cursorColor: kPrimaryColor,
         autofocus: false,
         controller: confirmPasswordEditingController,
         obscureText: true,
@@ -158,11 +233,28 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.vpn_key),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3.0,
+            ),
+          ),
+          prefixIcon: Icon(
+            Icons.vpn_key,
+            color: kPrimaryColor,
+          ),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Confirm Password",
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(29),
           ),
         ));
 
@@ -170,7 +262,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     final signUpButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
-      color: Colors.redAccent,
+      color: kPrimaryColor,
       child: MaterialButton(
           padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
@@ -188,10 +280,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: kPrimaryColor,
+        title: Text("Login"),
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.red),
+          icon: Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             // passing this to our root
             Navigator.of(context).pop();
@@ -211,24 +304,22 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(
-                        height: 180,
+                        height: 250,
                         child: Image.asset(
-                          "assets/logo.png",
+                          "assets/images/mon_jardin_logo-removebg-preview.png",
                           fit: BoxFit.contain,
                         )),
-                    SizedBox(height: 45),
                     firstNameField,
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     secondNameField,
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     emailField,
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     passwordField,
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     confirmPasswordField,
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     signUpButton,
-                    SizedBox(height: 15),
                   ],
                 ),
               ),

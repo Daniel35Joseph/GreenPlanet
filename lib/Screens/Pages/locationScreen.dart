@@ -32,8 +32,11 @@ class _LocationsState extends State<LocationScreen>{
       child: ListTile(
         contentPadding: EdgeInsets.all(16),
         leading: CircleAvatar(
+          backgroundColor: Colors.transparent,
           radius: 32,
-          backgroundImage: NetworkImage(location['Image']),
+          backgroundImage: NetworkImage(
+            location['Image'],
+          ),
         ),
         trailing: IconButton(
           icon: Icon(Icons.delete, color: Colors.red, size: 32),
