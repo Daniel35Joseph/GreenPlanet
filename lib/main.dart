@@ -1,41 +1,26 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
-import 'package:flutter_auth/constants.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+
+import 'Screens/Login_Registration/login_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Green Planet',
+      title: 'Email And Password Login',
       theme: ThemeData(
-        primaryColor: kPrimaryColor,
-        scaffoldBackgroundColor: Colors.white,
+        primarySwatch: Colors.red,
       ),
-      home: FutureBuilder(
-        future: _fbApp,
-        builder: (context, snapshot){
-          if (snapshot.hasError){
-            print('You have an error! ${snapshot.error.toString()}');
-            return Text('Something Went Wrong!');
-          }else if (snapshot.hasData){
-            return WelcomeScreen();
-          }else{
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        },
-      )
-      //WelcomeScreen(),
+      debugShowCheckedModeBanner: false,
+      home: LoginScreen(),
     );
   }
 }
