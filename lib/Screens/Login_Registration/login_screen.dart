@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Pages/locationScreen.dart';
+import 'package:flutter_auth/constants.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'registration_screen.dart';
 
@@ -49,7 +50,10 @@ class _LoginScreenState extends State<LoginScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.mail),
+          prefixIcon: Icon(
+            Icons.mail,
+            color: kPrimaryColor,
+          ),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Email",
           border: OutlineInputBorder(
@@ -76,7 +80,10 @@ class _LoginScreenState extends State<LoginScreen> {
         },
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.vpn_key),
+          prefixIcon: Icon(
+            Icons.vpn_key,
+            color: kPrimaryColor,
+          ),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Password",
           border: OutlineInputBorder(
@@ -87,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final loginButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
-      color: Colors.redAccent,
+      color: kPrimaryColor,
       child: MaterialButton(
           padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
@@ -119,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                         height: 200,
                         child: Image.asset(
-                          "assets/logo.png",
+                          "assets/images/mon_jardin_logo-removebg-preview.png",
                           fit: BoxFit.contain,
                         )),
                     SizedBox(height: 45),
@@ -132,7 +139,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text("Don't have an account? "),
+                          Text(
+                            "Don't have an account? ",
+                          ),
                           GestureDetector(
                             onTap: () {
                               Navigator.push(
@@ -144,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Text(
                               "SignUp",
                               style: TextStyle(
-                                  color: Colors.redAccent,
+                                  color: kPrimaryColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 15),
                             ),
