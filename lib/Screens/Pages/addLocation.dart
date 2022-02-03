@@ -56,6 +56,13 @@ class _MainPageState extends State<AddLocation> {
         cursorColor: kPrimaryColor,
         cursorWidth: 0.8,
         decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3,
+            ),
+          ),
           icon: new Icon(
             Icons.person,
             color: kPrimaryColor,
@@ -87,6 +94,13 @@ class _MainPageState extends State<AddLocation> {
         cursorWidth: 0.8,
         scrollPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(29),
+            borderSide: BorderSide(
+              color: kPrimaryLightColor,
+              width: 3,
+            ),
+          ),
           icon: new Icon(
             Icons.image,
             color: kPrimaryColor,
