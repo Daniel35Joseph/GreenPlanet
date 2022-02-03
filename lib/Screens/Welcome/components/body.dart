@@ -10,14 +10,29 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     // This size provide us total height and width of our screen
-    return Background(
+    return Container(
+      height: double.infinity,
+      color: kPrimaryColor,
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Image.asset('assets/images/jardin_mon_logo-removebg-preview.png'),
             Text(
-              "GREEN PLANET",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              "Mon Jardin",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 50,
+                color: Colors.white,
+              ),
+            ),
+            Text(
+              "PLANT MONITORING SYSTEM",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
+                color: Colors.white,
+              ),
             ),
             SizedBox(height: size.height * 0.05),
             // SvgPicture.asset(

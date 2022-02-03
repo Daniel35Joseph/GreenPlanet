@@ -7,6 +7,8 @@ import 'package:flutter_auth/components/rounded_button.dart';
 import 'package:flutter_auth/components/rounded_input_field.dart';
 import 'package:flutter_auth/components/rounded_password_field.dart';
 
+import '../../../constants.dart';
+
 class Body extends StatelessWidget {
   const Body({
     Key key,
@@ -15,14 +17,20 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Background(
+    return Container(
+      color: kPrimaryColor,
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Image.asset('assets/images/jardin_mon_logo-removebg-preview.png'),
             Text(
-              "LOGIN",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              "Login",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 50,
+                color: Colors.white,
+              ),
             ),
             SizedBox(height: size.height * 0.03),
             SizedBox(height: size.height * 0.03),
@@ -60,6 +68,7 @@ class Body extends StatelessWidget {
                 );
               },
             ),
+            SizedBox(height: size.height * 0.019),
           ],
         ),
       ),

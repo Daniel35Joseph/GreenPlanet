@@ -22,6 +22,10 @@ class _MainPageState extends State<AddLocation> {
   final formKey = GlobalKey<FormState>();
   String title = '';
   String urlImage = '';
+  String plantName = '';
+
+  final plantTypes = ['aloeplant', 'bamboo', 'jasmine', 'monstera', 'sunflower'];
+  String value;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -38,6 +42,8 @@ class _MainPageState extends State<AddLocation> {
               buildTitle(),
               const SizedBox(height: 16),
               buildImage(),
+              const SizedBox(height: 16),
+              buildPlantDropDown(),
               const SizedBox(height: 32),
               buildSubmit(),
             ],
@@ -64,11 +70,6 @@ class _MainPageState extends State<AddLocation> {
           ),
         ),
 
-        // errorBorder:
-        //     OutlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
-        // focusedErrorBorder:
-        //     OutlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
-        // errorStyle: TextStyle(color: Colors.purple),
 
         validator: (value) {
           if (value.length < 3) {
@@ -106,9 +107,43 @@ class _MainPageState extends State<AddLocation> {
             return null;
           }
         },
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: TextInputType.url,
         onSaved: (value) => setState(() => urlImage = value),
       );
+
+  Widget buildPlantDropDown() => Container(
+    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    margin: EdgeInsets.all(16),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(29),
+      border: Border.all(color: kPrimaryColor, width: 2),
+    ),
+    child: DropdownButtonHideUnderline(
+      child: DropdownButton<String>(
+      dropdownColor: kPrimaryLightColor,
+      icon: Icon(
+        Icons.arrow_drop_down,
+        size: 26,
+        color: kPrimaryColor,
+      ),
+      value: value,
+      isExpanded: true,
+      items: plantTypes.map(buildMenuItem ).toList(),
+      onChanged: (value) => setState(() => plantName = value),
+      borderRadius: BorderRadius.circular(29),
+      )
+    )
+  );
+
+  DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(
+    value: item,
+    child: Text(
+      item,
+      style: TextStyle(
+        fontSize: 20,
+      ),
+    ),
+  );
 
   Widget buildSubmit() => Builder(
         builder: (context) => ButtonWidget(
@@ -120,7 +155,7 @@ class _MainPageState extends State<AddLocation> {
             if (isValid) {
               formKey.currentState.save();
 
-              addNewLocation(title, urlImage);
+              addNewLocation(title, urlImage, plantName);
 
               final message = 'Title: $title\nImage Url: $urlImage';
               final snackBar = SnackBar(
@@ -147,13 +182,14 @@ class _MainPageState extends State<AddLocation> {
 }
 
 
-void addNewLocation(String title, String urlImage) {
+void addNewLocation(String title, String urlImage, String plantName) {
   DatabaseReference _testRef =
       // ignore: deprecated_member_use
       FirebaseDatabase.instance.reference().child("Locations");
   DatabaseReference _ref = _testRef.child("Location_${Random().nextInt(100)}");
   _ref.child("Title").set(title);
   _ref.child("Image").set(urlImage);
+  _ref.child("plantname").set(plantName);
 }
 
 // class AddLocation extends StatelessWidget {
